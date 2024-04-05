@@ -1,0 +1,32 @@
+// Import Variables
+@use 'scss/variables' as *;
+
+// Import Mixins
+@use 'scss/mixins' as *;
+
+// Import Global Rules
+@use 'scss/base';
+
+// Import Layout
+@use 'scss/layout';
+
+// Import Header
+@use 'scss/header';
+
+// Import Landing
+@use 'scss/landing';
+
+// Import Main Title
+@use 'scss/main-title';
+
+// Import Chefs Section
+@use 'scss/chefs';
+
+// Import Gallery Section
+@use 'scss/gallery';
+
+// Import Contact Section
+@use 'scss/contact';
+
+// Import Footer
+@use 'scss/footer';

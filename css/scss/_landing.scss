@@ -1,0 +1,101 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.landing {
+  padding: calc(89px + 2.5rem) 0 2.5rem;
+  background-color: $color-light-gray;
+  @include respond-to(992) {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    @include respond-to(992) {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+  &__img {
+    margin-bottom: 3rem;
+    @include respond-to(992) {
+      order: 1;
+      margin-bottom: 0;
+    }
+    img {
+      width: 100%;
+      filter: drop-shadow(4px 4px 9px #000a);
+    }
+  }
+  &__title {
+    font-family: "Amatic SC", sans-serif;
+    font-size: 4rem;
+    color: $color-dark-2;
+    text-align: center;
+    margin-bottom: 20px;
+    @include respond-to(992) {
+      text-align: left;
+    }
+  }
+  &__description {
+    text-align: center;
+    color: #4f4f5a;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    @include respond-to(992) {
+      text-align: left;
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    @include respond-to(992) {
+      justify-content: start;
+    }
+    a:first-child {
+      background-color: $color-primary;
+      color: $color-light;
+      text-decoration: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 100vh;
+      @include respond-to(992) {
+        border-radius: 0 100vh 100vh;
+      }
+    }
+    a:last-child {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      text-decoration: none;
+      color: $color-dark-2;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        background-image: linear-gradient(to right, $color-primary 50%, $color-light 50%);
+        position: relative;
+        i {
+          color: $color-dark;
+          position: relative;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          // z-index: -1;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          left: 0.5rem;
+          background-color: $color-light;
+        }
+      }
+    }
+  }
+}

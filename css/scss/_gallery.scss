@@ -1,0 +1,65 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.gallery {
+  padding-block: 5rem;
+  background-color: $color-light-gray;
+  &__imgs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    @include respond-to(768) {
+      height: 1330px;
+    }
+    @include respond-to(992) {
+      height: 999px;
+    }
+    &__img {
+      @include respond-to(768) {
+        width: calc((100% - 1.25rem) / 2);
+      }
+      @include respond-to(992) {
+        width: calc((100% - 2.5rem) / 3);
+      }
+      border: 4px solid white;
+      overflow: hidden;
+      position: relative;
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+        div {
+          transform: translateY(0);
+        }
+      }
+      img {
+        display: block;
+        width: 100%;
+        transition: 0.3s ease;
+      }
+      div {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(#000000, 0.5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transform: translateY(100%);
+        transition: 0.5s ease;
+        text-align: center;
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+      &:nth-child(1) {
+        @include respond-to(768) {
+          order: 7;
+          }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,16 @@
+@use 'mixins' as *;
+
+.container {
+  max-width: 540px;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+  @include respond-to(768) {
+    max-width: 720px;
+  }
+  @include respond-to(992) {
+    max-width: 960px;
+  }
+  @include respond-to(1200) {
+    max-width: 1140px;
+  }
+}

@@ -1,0 +1,140 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: $color-light;
+  box-shadow: 0px 0px 14px 0px #0000001b;
+  padding: 1.5rem 0;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    a {
+      font-size: 30px;
+      font-weight: bold;
+      color: $color-dark;
+      text-decoration: none;
+      position: relative;
+      &::before {
+        content: '.';
+        position: absolute;
+        bottom: 0;
+        right: -8px;
+        color: $color-primary;
+      }
+    }
+  }
+  &__nav {
+    // display: none;
+    margin-left: auto;
+    @include respond-to(1200) {
+      display: block;
+    }
+    ul {
+      position: absolute;
+      width: 350px;
+      height: 100vh;
+      top: 0;
+      right: 0;
+      background-color: $color-light;
+      box-shadow: 0px 0px 14px 0px #0000001b;
+      transform: translateX(100%);
+      transition: 0.3s ease;
+      @include respond-to(1200) {
+        box-shadow: none;
+        position: static;
+        height: auto;
+        display: flex;
+        gap: 1rem;
+        transform: translate(0);
+      }
+      &.open {
+        transform: translate(0);
+      }
+    }
+    li {
+      padding: 1rem;
+      @include respond-to(1200) {
+        padding: 0;
+      }
+      &:first-child {
+        text-align: right;
+        i {
+          font-size: 25px;
+          cursor: pointer;
+        }
+        @include respond-to(1200) {
+          display: none;
+        }
+      }
+    }
+    a {
+      font-weight: 700;
+      text-decoration: none;
+      color: $color-gray;
+      position: relative;
+      transition: 0.3s ease;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.4rem;
+        width: 100%;
+        height: 2px;
+        background-color: $color-primary;
+        opacity: 0;
+        transition: 0.3s ease;
+      }
+      &.active {
+        color: $color-dark;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__mode-switcher {
+    margin-left: auto;
+    margin-right: 20px;
+    @include respond-to(1200) {
+      margin-right: 0;
+    }
+    cursor: pointer;
+    label {
+      font-size: 25px;
+    }
+    .light {
+      display: none;
+    }
+    input {
+      display: none;
+    }
+  }
+  &__menu-icon {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    @include respond-to(1200) {
+      display: none;
+    }
+    i {
+      margin-top: 6px;
+    }
+  }
+}
+.overlay {
+  position: absolute;
+  background: rgba($color-light, 0.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
